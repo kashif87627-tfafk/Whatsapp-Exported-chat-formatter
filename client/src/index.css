@@ -117,3 +117,17 @@
     @apply bg-muted-foreground/50;
   }
 }
+
+/* Hide Replit dev banner */
+#replit-dev-banner,
+.__replit-dev-banner,
+[class*="replit-dev-banner"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
