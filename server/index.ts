@@ -11,12 +11,19 @@ declare module "http" {
     rawBody: unknown;
   }
 }
-
 app.use(
   express.json({
-    verify: (req, _res, buf) => {
+    limit: "50mb", 
+    verify: (req: any, _res, buf) => {
       req.rawBody = buf;
     },
+  }),
+);
+
+app.use(
+  express.urlencoded({
+    extended: false,
+    limit: "50mb", 
   }),
 );
 
