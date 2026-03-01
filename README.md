@@ -66,10 +66,10 @@ npm -v
 
 ```
 git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/kashif87627-tfafk/Whatsapp-Exported-chat-formatter
-cd Chat-Formatter
+cd Whatsapp-Exported-chat-formatter-Whatsapp-Exported-chat-formatter
 ```
 
-Or download ZIP and extract.
+Or download ZIP and extract. and open folder Whatsapp-Exported-chat-formatter-Whatsapp-Exported-chat-formatter
 
 ---
 
