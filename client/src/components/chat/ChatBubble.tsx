@@ -31,7 +31,7 @@ export function ChatBubble({ message, isMe, colorIndex = 0 }: ChatBubbleProps) {
   const senderColor = SENDER_COLORS[colorIndex % SENDER_COLORS.length];
 
   return (
-    <div className={`flex w-full my-1.5 ${isMe ? "justify-end" : "justify-start"}`}>
+    <div className={`flex w-full my-1.5 ${isMe ? "justify-end" : "justify-start"} group`}>
       <div 
         className={`
           relative max-w-[85%] md:max-w-[75%] px-3 pt-2 pb-1.5 shadow-sm
@@ -47,14 +47,13 @@ export function ChatBubble({ message, isMe, colorIndex = 0 }: ChatBubbleProps) {
           </div>
         )}
         
-        <div className="text-[15px] leading-relaxed whitespace-pre-wrap break-words">
+        <div className="text-[15px] leading-relaxed whitespace-pre-wrap break-words pr-12">
           {message.text}
-          <span className="inline-block w-12" /> {/* Spacer for time layout */}
         </div>
         
-        <div className="absolute bottom-1 right-2 flex items-center gap-1">
-          <span className="text-[10px] text-foreground/50 italic pointer-events-none select-none">
-            {message.time || message.date}
+        <div className="absolute bottom-1.5 right-2 flex items-center gap-1">
+          <span className="text-[10px] text-foreground/70 font-medium pointer-events-none select-none whitespace-nowrap">
+            {message.time}
           </span>
         </div>
       </div>
