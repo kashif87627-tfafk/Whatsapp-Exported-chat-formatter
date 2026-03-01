@@ -1,4 +1,4 @@
-# 📱 WhatsApp Chat Parser (Chat Formatter)
+# WhatsApp Chat Parser (Chat Formatter)
 
 A full-stack web application that converts exported WhatsApp `.txt` chat files into a clean, readable chat interface with message bubbles, sender perspective, and timeline formatting.
 
