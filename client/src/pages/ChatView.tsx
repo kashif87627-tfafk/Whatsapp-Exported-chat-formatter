@@ -20,6 +20,7 @@ export default function ChatView() {
   const { data: chat, isLoading, error } = useChat(chatId);
   
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [currentDate, setCurrentDate] = useState<string>("");
 
   // Extract unique senders
   const uniqueSenders = useMemo(() => {
@@ -65,6 +66,45 @@ export default function ChatView() {
           scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
         }
       }, 100);
+    }
+  }, [chat]);
+
+  // Handle scroll to track current date
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrollRef.current || !chat?.parsedData) return;
+
+      const messages = chat.parsedData as ChatMessage[];
+      const scrollTop = scrollRef.current.scrollTop;
+      const viewportHeight = scrollRef.current.clientHeight;
+      const scrollCenter = scrollTop + viewportHeight / 2;
+
+      // Find which message is closest to the center of the viewport
+      let closestDate = "";
+      let closestDistance = Infinity;
+
+      const messageElements = scrollRef.current.querySelectorAll('[data-message-date]');
+      messageElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const parentRect = scrollRef.current!.getBoundingClientRect();
+        const elementTop = rect.top - parentRect.top + scrollTop;
+        const distance = Math.abs(elementTop - scrollCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestDate = el.getAttribute('data-message-date') || "";
+        }
+      });
+
+      if (closestDate) {
+        setCurrentDate(closestDate);
+      }
+    };
+
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll);
+      return () => scrollContainer.removeEventListener('scroll', handleScroll);
     }
   }, [chat]);
 
@@ -143,8 +183,17 @@ export default function ChatView() {
         {/* Chat Messages Area */}
         <div 
           ref={scrollRef}
-          className="flex-1 overflow-y-auto chat-background px-4 py-6 scrollbar-thin"
+          className="flex-1 overflow-y-auto chat-background px-4 py-6 scrollbar-thin relative"
         >
+          {/* Sticky Date Header */}
+          {currentDate && (
+            <div className="sticky top-0 flex justify-center mb-4 z-20 pointer-events-none">
+              <div className="bg-foreground/10 dark:bg-foreground/20 text-foreground/70 px-3 py-1 rounded-full text-xs font-medium shadow-sm">
+                {currentDate}
+              </div>
+            </div>
+          )}
+
           <div className="max-w-3xl mx-auto flex flex-col gap-1 pb-4">
             {/* End to end encryption fake notice */}
             <div className="flex justify-center my-4 w-full">
@@ -159,12 +208,13 @@ export default function ChatView() {
               const colorIdx = msg.sender ? senderColorMap.get(msg.sender) ?? 0 : 0;
               
               return (
-                <ChatBubble 
-                  key={msg.id || idx} 
-                  message={msg} 
-                  isMe={isMe} 
-                  colorIndex={colorIdx}
-                />
+                <div key={msg.id || idx} data-message-date={msg.date}>
+                  <ChatBubble 
+                    message={msg} 
+                    isMe={isMe} 
+                    colorIndex={colorIdx}
+                  />
+                </div>
               );
             })}
           </div>
