@@ -52,8 +52,10 @@ export function ChatBubble({ message, isMe, colorIndex = 0 }: ChatBubbleProps) {
         </div>
         
         <div className="absolute bottom-1.5 right-2 flex items-center gap-1">
-          <span className="text-[10px] text-foreground/70 font-medium pointer-events-none select-none whitespace-nowrap">
-            {message.time}
+          <span className="text-[10px] text-foreground/50 italic pointer-events-none select-none">
+            {message.date && <span>{message.date}</span>}
+            {message.date && message.time && <span>•</span>}
+            {message.time && <span>{message.time}</span>}
           </span>
         </div>
       </div>
