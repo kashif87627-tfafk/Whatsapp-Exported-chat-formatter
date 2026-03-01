@@ -60,3 +60,4 @@ export function ChatBubble({ message, isMe, colorIndex = 0 }: ChatBubbleProps) {
     </div>
   );
 }
+//reset1
