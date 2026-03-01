@@ -65,7 +65,7 @@ npm -v
 ### 2️⃣ Clone the Repository
 
 ```
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/kashif87627-tfafk/Whatsapp-Exported-chat-formatter
 cd Chat-Formatter
 ```
 
