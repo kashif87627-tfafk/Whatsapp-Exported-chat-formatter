@@ -65,7 +65,7 @@ npm -v
 ### 2️⃣ Clone the Repository
 
 ```
-git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/kashif87627-tfafk/Whatsapp-Exported-chat-formatter
+git clone https://github.com/kashif87627-tfafk/Whatsapp-Exported-chat-formatter
 cd Whatsapp-Exported-chat-formatter-Whatsapp-Exported-chat-formatter
 ```
 
@@ -83,7 +83,7 @@ npm install
 
 ---
 
-### 4️⃣ Run the App (Development Mode)
+### 4️⃣ Run the App 
 
 For Windows:
 
@@ -186,15 +186,6 @@ Or kill the running process on port 5000.
 
 ---
 
-## 🎨 Customization
-
-You can customize:
-
-* App icon → `client/public/favicon.png`
-* App title → `client/index.html`
-* UI styling → Tailwind classes in `client/src`
-
----
 
 ## 📦 GitHub Setup (Recommended)
 
