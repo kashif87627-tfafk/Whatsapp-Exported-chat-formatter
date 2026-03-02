@@ -88,8 +88,14 @@ npm install
 For Windows:
 
 ```
+npm start
+```
+For development environment
+```
 npm run dev
 ```
+
+
 
 The app will start on:
 
