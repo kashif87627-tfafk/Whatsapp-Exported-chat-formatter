@@ -7,7 +7,6 @@ interface ChatBubbleProps {
   colorIndex?: number;
 }
 
-// Array of nice colors for sender names
 const SENDER_COLORS = [
   "text-emerald-600 dark:text-emerald-400",
   "text-blue-600 dark:text-blue-400",
@@ -62,4 +61,4 @@ export function ChatBubble({ message, isMe, colorIndex = 0 }: ChatBubbleProps) {
     </div>
   );
 }
-//reset1
+
