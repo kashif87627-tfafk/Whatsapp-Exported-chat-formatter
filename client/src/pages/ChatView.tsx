@@ -183,8 +183,8 @@ export default function ChatView() {
         {/* Chat Messages Area */}
         <div 
           ref={scrollRef}
-          className="flex-1 overflow-y-auto chat-background px-4 py-6 scrollbar-thin relative"
-        >
+          className="flex-1 overflow-y-auto chat-scroll chat-background px-4 py-6 relative overscroll-contain"
+          >
           {/* Sticky Date Header */}
           {currentDate && (
             <div className="sticky top-0 flex justify-center mb-4 z-20 pointer-events-none">

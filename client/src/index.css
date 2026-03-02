@@ -118,7 +118,7 @@
   }
 }
 
-/* Hide Replit dev banner */
+
 #replit-dev-banner,
 .__replit-dev-banner,
 [class*="replit-dev-banner"] {
@@ -130,4 +130,27 @@
   width: 0 !important;
   position: absolute !important;
   left: -9999px !important;
+}
+/* ===== Modern Chat Scrollbar ===== */
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.35);
+  border-radius: 10px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.6);
+}
+
+/* Firefox */
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120,120,120,0.35) transparent;
 }
